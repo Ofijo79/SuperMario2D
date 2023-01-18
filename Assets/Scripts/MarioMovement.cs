@@ -7,11 +7,19 @@ public class MarioMovement : MonoBehaviour
     int playerHealth = 3;
     public float playerSpeed = 5.5f;
     string texto = "Hello World";
-    bool isGrounded = false;
+    private SpriteRenderer spriteRenderer;
+    float horizontal;
+    private Rigidbody2D rBody;
+    public float jumpForce = 3f;
+    private GroundSensor sensor;
 
     // Start is called before the first frame update
     void Start()
     {
+        sensor = GameObject.Find("GroundSensor").GetComponent<GroundSensor>();
+        rBody = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        
         playerHealth = 10;
         Debug.Log(texto);  
     }
@@ -19,7 +27,22 @@ public class MarioMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0) * playerSpeed * Time.deltaTime;
+        horizontal = Input.GetAxis("Horizontal");
 
+        transform.position += new Vector3(horizontal,0,0) * playerSpeed * Time.deltaTime;
+
+        if(horizontal < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if(horizontal > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+
+        if(Input.GetButtonDown("Jump") && sensor.isGrounded)
+        {
+            rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
     }
 }
