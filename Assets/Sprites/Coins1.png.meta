@@ -107,6 +107,27 @@ TextureImporter:
       name: Coins1_0
       rect:
         serializedVersion: 2
+        x: 0
+        y: 0
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c4f9413b405fa8448a66f68adacfb38
+      internalID: -575207713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coins1_1
+      rect:
+        serializedVersion: 2
         x: 18
         y: 2
         width: 8
@@ -118,8 +139,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c4f9413b405fa8448a66f68adacfb38
-      internalID: -575207713
+      spriteID: f9fcea58e8880bd489a4b4bee5ab3a18
+      internalID: -1988073677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coins1_2
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 2
+        width: 4
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44c4e8038aa7e31438c590229851f382
+      internalID: -314030358
       vertices: []
       indices: 
       edges: []
@@ -135,7 +177,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Coins1_2: -314030358
       Coins1_0: -575207713
+      Coins1_1: -1988073677
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
