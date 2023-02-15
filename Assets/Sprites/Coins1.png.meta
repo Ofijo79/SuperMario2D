@@ -107,12 +107,12 @@ TextureImporter:
       name: Coins1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 14
-        height: 18
+        x: 4
+        y: 2
+        width: 1
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -133,7 +133,7 @@ TextureImporter:
         width: 8
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -154,7 +154,7 @@ TextureImporter:
         width: 4
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,6 +162,48 @@ TextureImporter:
       bones: []
       spriteID: 44c4e8038aa7e31438c590229851f382
       internalID: -314030358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coins1_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a984c75a87ff29428a11935532bc5dd
+      internalID: 1279177771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coins1_4
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 2
+        width: 4
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c944452714417df4f978c35403ba8a52
+      internalID: -1212323090
       vertices: []
       indices: 
       edges: []
@@ -179,7 +221,9 @@ TextureImporter:
     nameFileIdTable:
       Coins1_2: -314030358
       Coins1_0: -575207713
+      Coins1_3: 1279177771
       Coins1_1: -1988073677
+      Coins1_4: -1212323090
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
