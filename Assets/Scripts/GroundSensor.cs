@@ -64,4 +64,5 @@ public class GroundSensor : MonoBehaviour
             controller.anim.SetBool("IsJumping", true);
         }
     }
+
 }

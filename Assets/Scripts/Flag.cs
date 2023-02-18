@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinScript : MonoBehaviour
+public class Flag : MonoBehaviour
 {
     BoxCollider2D boxCollider;
     SFXManager sfxManager;
@@ -14,13 +14,14 @@ public class CoinScript : MonoBehaviour
         sfxManager = GameObject.Find("SFXManager"). GetComponent<SFXManager>();
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
-    
+
+    // Update is called once per frame
     void OnCollisionEnter2D(Collision2D collision) 
     {
         if(collision.gameObject.tag == "Player")
         {
-            Destroy(this.gameObject);
-            sfxManager.GetCoin();
+            sfxManager.FinalLvl();
+            soundManager.StopBGM();
         }
     }
 }

@@ -3155,6 +3155,7 @@ GameObject:
   - component: {fileID: 112077534}
   - component: {fileID: 112077533}
   - component: {fileID: 112077532}
+  - component: {fileID: 112077535}
   m_Layer: 0
   m_Name: Banderas_3
   m_TagString: Untagged
@@ -3255,6 +3256,18 @@ Transform:
   m_Father: {fileID: 221307336}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &112077535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112077531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03c4f5edda1cc554d8d175bf1b132c89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &113030655
 GameObject:
   m_ObjectHideFlags: 0
@@ -17753,6 +17766,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marioDeath: {fileID: 8300000, guid: 2685bf7acc856a1458fb01b61e8fa86f, type: 3}
   goombaDeath: {fileID: 8300000, guid: 666006f43310b5c44b5f571a8f420c81, type: 3}
+  getCoin: {fileID: 8300000, guid: 89068776a27be0247a7fe83eda822e8c, type: 3}
+  finalLvl: {fileID: 8300000, guid: ff80d705b84125540bc7241e58c4e306, type: 3}
 --- !u!82 &543793709
 AudioSource:
   m_ObjectHideFlags: 0
@@ -53360,7 +53375,7 @@ GameObject:
   - component: {fileID: 1628758891}
   - component: {fileID: 1628758894}
   - component: {fileID: 1628758895}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Coins1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
