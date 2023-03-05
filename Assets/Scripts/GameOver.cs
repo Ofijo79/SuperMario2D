@@ -9,8 +9,8 @@ public class GameOver : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
-    public void Exit()
+    public void MainMenu()
     {
-        Application.Quit();
+        SceneManager.LoadScene(0);
     }
 }
