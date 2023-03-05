@@ -18,7 +18,7 @@ public class ContadorMonedas : MonoBehaviour
         if(collision.gameObject.tag == "Coin")
         {
             score++;
-            scoreText.text = "score" + score;
+            scoreText.text = "x" + score;
         }
     }
 }
