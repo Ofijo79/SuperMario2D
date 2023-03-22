@@ -8,6 +8,7 @@ public class DeadZone : MonoBehaviour
     BoxCollider2D boxCollider;
     SFXManager sfxManager;
     SoundManager soundManager;
+    GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,8 @@ public class DeadZone : MonoBehaviour
         
         sfxManager = GameObject.Find("SFXManager"). GetComponent<SFXManager>();
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -25,7 +28,8 @@ public class DeadZone : MonoBehaviour
             Destroy(collider.gameObject);
             sfxManager.MarioDeath();
             soundManager.StopBGM();
-            SceneManager.LoadScene(2);
+            // SceneManager.LoadScene(2);
+            gameManager.GameOver();
         }
     }
 }

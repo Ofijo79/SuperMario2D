@@ -13,6 +13,9 @@ public class MarioMovement : MonoBehaviour
     public float jumpForce = 3f;
     private GroundSensor sensor;
     public Animator anim;
+    SFXManager sfxManager;
+
+    GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -23,41 +26,59 @@ public class MarioMovement : MonoBehaviour
         anim = GetComponent<Animator>();
 
         playerHealth = 10;
-        Debug.Log(texto);  
+        Debug.Log(texto); 
+
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
+        if(gameManager.isGameOver == false) 
+        {
+            horizontal = Input.GetAxis("Horizontal");
 
-        //transform.position += new Vector3(horizontal,0,0) * playerSpeed * Time.deltaTime;
+            //transform.position += new Vector3(horizontal,0,0) * playerSpeed * Time.deltaTime;
 
-        if(horizontal < 0)
-        {
-            spriteRenderer.flipX = true;
-            anim.SetBool("IsRunning", true);
-        }
-        else if(horizontal > 0)
-        {
-            spriteRenderer.flipX = false;
-            anim.SetBool("IsRunning", true);
-        }
-        else
-        {
-            anim.SetBool("IsRunning", false);
+            if(horizontal < 0)
+            {
+                spriteRenderer.flipX = true;
+                anim.SetBool("IsRunning", true);
+            }
+            else if(horizontal > 0)
+            {
+                spriteRenderer.flipX = false;
+                anim.SetBool("IsRunning", true);
+            }
+            else
+            {
+                anim.SetBool("IsRunning", false);
+            }
+
+            if(Input.GetButtonDown("Jump") && sensor.isGrounded)
+            {
+                rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                anim.SetBool("IsJumping", true);
+            }
         }
 
-        if(Input.GetButtonDown("Jump") && sensor.isGrounded)
-        {
-            rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            anim.SetBool("IsJumping", true);
-        }
+        
     }
 
     void FixedUpdate() 
     {
         rBody.velocity = new Vector2(horizontal * playerSpeed, rBody.velocity.y);    
+    }
+
+    void OnCollisionEnter2D(Collision2D collision) 
+    {
+        if(collision.gameObject.tag == "Coin")
+        {
+            gameManager.AddCoin();
+            sfxManager.GetCoin();
+            Destroy(collision.gameObject);
+        }
     }
 }

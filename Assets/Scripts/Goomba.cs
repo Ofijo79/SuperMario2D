@@ -12,6 +12,7 @@ public class Goomba : MonoBehaviour
     Rigidbody2D rBody;
     SFXManager sfxManager;
     SoundManager soundManager;
+    GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class Goomba : MonoBehaviour
         
         sfxManager = GameObject.Find("SFXManager"). GetComponent<SFXManager>();
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -44,7 +46,8 @@ public class Goomba : MonoBehaviour
             Destroy(collision.gameObject);
             sfxManager.MarioDeath();
             soundManager.StopBGM();
-            SceneManager.LoadScene(2);
+            // SceneManager.LoadScene(2);
+            gameManager.GameOver();
         }
         
 
