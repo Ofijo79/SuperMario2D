@@ -17,6 +17,9 @@ public class MarioMovement : MonoBehaviour
 
     GameManager gameManager;
 
+    public GameObject ballPrefab;
+    public Transform ballSpawn;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,12 +47,14 @@ public class MarioMovement : MonoBehaviour
 
             if(horizontal < 0)
             {
-                spriteRenderer.flipX = true;
+                //spriteRenderer.flipX = true;
+                transform.rotation = Quaternion.Euler(0,180,0);
                 anim.SetBool("IsRunning", true);
             }
             else if(horizontal > 0)
             {
-                spriteRenderer.flipX = false;
+                //spriteRenderer.flipX = false;
+                transform.rotation = Quaternion.Euler(0,0,0);
                 anim.SetBool("IsRunning", true);
             }
             else
@@ -61,6 +66,11 @@ public class MarioMovement : MonoBehaviour
             {
                 rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 anim.SetBool("IsJumping", true);
+            }
+
+            if(Input.GetKeyDown(KeyCode.F) && gameManager.canShoot)
+            {
+                Instantiate(ballPrefab, ballSpawn.position, ballSpawn.rotation);
             }
         }
 
@@ -78,6 +88,12 @@ public class MarioMovement : MonoBehaviour
         {
             gameManager.AddCoin();
             sfxManager.GetCoin();
+            Destroy(collision.gameObject);
+        }
+        
+        if(collision.gameObject.tag == "PowerUP")
+        {
+            gameManager.canShoot = true;
             Destroy(collision.gameObject);
         }
     }
