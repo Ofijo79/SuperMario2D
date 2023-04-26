@@ -78,4 +78,14 @@ public class Goomba : MonoBehaviour
             }
         }
     }
+
+    void OnBecameVisible() 
+    {
+        gameManager.goombasInScreen.Add(this.gameObject);
+    }
+
+    void OnBecameInvisible() 
+    {
+        gameManager.goombasInScreen.Remove(this.gameObject);
+    }
 }

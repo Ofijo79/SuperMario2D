@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     private int score;
     public Text scoreText;
+
+    public List<GameObject> goombasInScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         ShootPowerUp();
+
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            KillAllGoombas();
+        }
     }
 
     public void GameOver()
@@ -70,6 +77,14 @@ public class GameManager : MonoBehaviour
                 canShoot = false;
                 powerUpTimer = 0;
             }
+        }
+    }
+
+    void KillAllGoombas()
+    {
+        for (int i = 0; i < goombasInScreen.Count; i++)
+        {
+            Destroy(goombasInScreen[i]);
         }
     }
 }
