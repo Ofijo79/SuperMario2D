@@ -11,6 +11,8 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
+        
         source = GetComponent<AudioSource>();
 
         source.clip = lvl1Music;
